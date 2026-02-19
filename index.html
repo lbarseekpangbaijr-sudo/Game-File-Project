@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbo Racer Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1 class="game-title">🏎️ Turbo Racer Pro</h1>
+            <div class="stats-container">
+                <div class="stat-box">
+                    Score: <span id="score" class="stat-value score">0</span>
+                </div>
+                <div class="stat-box">
+                    High Score: <span id="highScore" class="stat-value highscore">0</span>
+                </div>
+                <div class="stat-box">
+                    Distance: <span id="distance" class="stat-value distance">0</span>m
+                </div>
+                <div id="comboBox" class="stat-box combo-box" style="display: none;">
+                    Combo: <span id="combo" class="stat-value">x0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="500" height="600"></canvas>
+            
+            <!-- Power-up indicators -->
+            <div id="powerupIndicators" class="powerup-indicators"></div>
+            
+            <!-- Menu Screen -->
+            <div id="menuScreen" class="overlay-screen">
+                <div class="screen-content">
+                    <h2 class="screen-title">Ready to Race?</h2>
+                    
+                    <div class="difficulty-section">
+                        <p class="difficulty-label">Select Difficulty:</p>
+                        <div class="difficulty-buttons">
+                            <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                            <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                        </div>
+                    </div>
+                    
+                    <button id="startBtn" class="start-btn">Start Game</button>
+                    
+                    <div class="instructions">
+                        <p class="instruction-title">Controls:</p>
+                        <p>🖥️ Desktop: Arrow Keys (← → ↑ ↓)</p>
+                        <p>📱 Mobile: Swipe to move</p>
+                        <p>⏸️ Press ESC to pause</p>
+                        <div class="powerup-info">
+                            <p class="instruction-title">Power-ups:</p>
+                            <p>🛡️ Shield - Protects from one collision</p>
+                            <p>⚡ Boost - Increases speed temporarily</p>
+                            <p>💰 Coin - Bonus points!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pause Screen -->
+            <div id="pauseScreen" class="overlay-screen" style="display: none;">
+                <div class="screen-content">
+                    <h2 class="screen-title pause-title">⏸️ PAUSED</h2>
+                    <button id="resumeBtn" class="action-btn primary">Resume</button>
+                    <button id="pauseMenuBtn" class="action-btn secondary">Main Menu</button>
+                    <p class="hint-text">Press ESC to resume</p>
+                </div>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="overlay-screen" style="display: none;">
+                <div class="screen-content">
+                    <h2 class="screen-title gameover-title">Game Over!</h2>
+                    
+                    <div class="final-stats">
+                        <p>Final Score: <span id="finalScore" class="stat-highlight score">0</span></p>
+                        <p>Distance: <span id="finalDistance" class="stat-highlight distance">0</span>m</p>
+                        <p>Coins: <span id="finalCoins" class="stat-highlight coins">0</span></p>
+                        <p id="newHighScore" class="new-highscore" style="display: none;">🎉 New High Score! 🎉</p>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="playAgainBtn" class="action-btn primary large">Play Again</button>
+                        <button id="gameoverMenuBtn" class="action-btn secondary">Main Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="features-title">🎮 Game Features:</p>
+            <div class="features-grid">
+                <p>✨ Power-ups & Shields</p>
+                <p>🎯 Combo System</p>
+                <p>📱 Mobile Support</p>
+                <p>🎨 Visual Effects</p>
+                <p>🔊 Sound Effects</p>
+                <p>⚙️ 3 Difficulty Levels</p>
+            </div>
+            <p class="hint-text">Dodge cars to build combos! Higher combos = more points!</p>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
